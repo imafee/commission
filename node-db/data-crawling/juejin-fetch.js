@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import { sleep } from "./util.js";
+import { sleep } from "../util.js";
 import { BOOKLET_FIELDS } from "../CONST.js";
 
 const { log } = console;

@@ -7,9 +7,12 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "启动程序",
+      "name": "api",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/node-db/data-crawling/index.js"
+      "program": "${workspaceFolder}/node-db/api-server/index.js",
+      "restart": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
     }
   ]
 }
