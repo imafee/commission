@@ -7,4 +7,8 @@ export const BOOKLET_FIELDS = [
   "summary", // 简介
   "buy_count", // 购买数量
   "cover_img", // 封面
+  "commission", // 佣金
 ];
+export const QUERY_TYPES = ["new", "hot", "discount"];
+export const QUERY_FIELDS = [...BOOKLET_FIELDS];
+export const SEARCH_FIELDS = [...BOOKLET_FIELDS];
