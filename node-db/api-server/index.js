@@ -1,11 +1,13 @@
 import Koa from "koa";
 import Router from "@koa/router";
+import cors from "@koa/cors";
 import bodyParser from "koa-bodyparser";
 import { query, search } from "./local.js";
 const { log, dir } = console;
 
 const app = new Koa();
 const router = new Router();
+app.use(cors());
 app.use(bodyParser());
 
 router.post("/api/query", async (ctx, next) => {

@@ -1,7 +1,7 @@
 import "./index.css";
 import { Button, message } from "antd";
 
-function Card() {
+function Card({ course }) {
   const jumpCourse = (url) => {
     if (url) {
       window.open(url, "_blank");
@@ -9,11 +9,12 @@ function Card() {
       message.info("当前链接不可用");
     }
   };
+
   return (
     <div
       className="card"
       onClick={() => {
-        jumpCourse("");
+        jumpCourse(course.shareUrl);
       }}
     >
       <div>
@@ -21,22 +22,30 @@ function Card() {
           alt="img"
           referrerPolicy="no-referrer"
           className="background"
-          src="https://static001.geekbang.org/resource/image/55/c8/5563a7294b2bfd563ae1227011d897c8.jpg"
+          src={course.cover_img}
         />
       </div>
       <div className="content">
         <div className="info">
-          <div className="title">测试标题</div>
-          <div className="author">作者</div>
-          <div className="people">999 人已学习</div>
+          <div className="title">{course.title}</div>
+          <div className="author">{}</div>
+          <div className="people">{course.buy_count}人已学习</div>
         </div>
         <div className="action">
           <div className="action-left">
             <div className="price">
-              <div className="promotion">限时 : ¥99</div>
-              <div className="origin">原价 : ¥199</div>
+              <div className="promotion">
+                限时: ¥
+                {(0.001 * course.price * course.discount_rate).toFixed(2)}
+              </div>
+              <div className="origin">
+                原价: ¥{(0.01 * course.price).toFixed(2)}
+              </div>
             </div>
-            <div className="return">成功购买后可得红包¥18</div>
+            <div className="return">
+              成功购买后可得红包¥
+              {(0.01 * course.commission).toFixed(2)}
+            </div>
           </div>
           <div className="aciton-right">
             <Button className="button" shape="round" type="primary">
